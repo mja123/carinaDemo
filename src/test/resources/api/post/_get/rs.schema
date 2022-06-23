@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "description": "The identifier of the user that is owner of the post",
+      "type": "integer"
+    },
+    "id": {
+      "description": "The unique identifier of the post",
+      "type": "integer"
+    },
+    "body": {
+      "description": "The post content",
+      "type": "string"
+    }
+  },
+  "required": [ "userId", "body" ]
+}
