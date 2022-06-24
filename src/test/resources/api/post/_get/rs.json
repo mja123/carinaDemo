@@ -3,4 +3,4 @@
   "userId": "regex:[\\d]",
   "title": "type:String",
   "body": "type:String"
-  }
+}
