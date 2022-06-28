@@ -2,6 +2,7 @@ package com.qaprosoft.carina.demo.myImplementation.api.weather;
 
 import com.qaprosoft.apitools.validation.JsonCompareKeywords;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,7 @@ public class GetCurrentWeatherTest implements IAbstractTest {
     }
 
     @Test()
+    @MethodOwner(owner = "mja123")
     public void getCurrentWeatherWithInvalidApiKey() {
         GetCurrentWeatherErrors api = new GetCurrentWeatherErrors();
 

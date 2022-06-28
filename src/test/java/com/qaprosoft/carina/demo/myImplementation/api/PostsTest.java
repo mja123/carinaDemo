@@ -23,6 +23,7 @@ public class PostsTest implements IAbstractTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     @Test()
+    @MethodOwner(owner = "mja123")
     public void testGetOnePost() {
         LOGGER.info("Starting test");
         GetPost api = new GetPost();
