@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.invoke.MethodHandles;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AbstractCategoryPage extends AbstractPage {
 
@@ -44,4 +45,58 @@ public abstract class AbstractCategoryPage extends AbstractPage {
         throw new ElementNotFoundException("Product " + id + " doesn't exist");
     }
 
+    public ProductPage selectProduct() throws ElementNotFoundException {
+        //Select the first product in the page.
+        if (productsLink.isEmpty()) {
+            throw new ElementNotFoundException("There aren't products in the page");
+        }
+        LOGGER.info("" + productsLink.size());
+        productsLink.get(0).click();
+        return new ProductPage(driver);
+    }
+
+    public List<ExtendedWebElement> getSubCategories() {
+        return subCategories;
+    }
+
+    public void setSubCategories(List<ExtendedWebElement> subCategories) {
+        this.subCategories = subCategories;
+    }
+
+    public List<ExtendedWebElement> getProductsLink() {
+        return productsLink;
+    }
+
+    public void setProductsLink(List<ExtendedWebElement> productsLink) {
+        this.productsLink = productsLink;
+    }
+
+    public List<ExtendedWebElement> getProductsId() {
+        return productsId;
+    }
+
+    public void setProductsId(List<ExtendedWebElement> productsId) {
+        this.productsId = productsId;
+    }
+
+    public HashMap<ExtendedWebElement, ExtendedWebElement> getProducts() {
+        return products;
+    }
+
+    public void setProducts(HashMap<ExtendedWebElement, ExtendedWebElement> products) {
+        this.products = products;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AbstractCategoryPage that = (AbstractCategoryPage) o;
+        return Objects.equals(subCategories, that.subCategories) && Objects.equals(productsLink, that.productsLink) && Objects.equals(productsId, that.productsId) && Objects.equals(products, that.products);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(subCategories, productsLink, productsId, products);
+    }
 }

@@ -130,8 +130,6 @@
         }
       },
       "required": [
-        "type",
-        "id",
         "country",
         "sunrise",
         "sunset"

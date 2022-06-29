@@ -19,7 +19,7 @@ public class GetCurrentWeatherTest implements IAbstractTest {
         CurrentWeatherData api = new CurrentWeatherData();
 
         api.replaceUrlPlaceholder("lat", "35");
-        api.replaceUrlPlaceholder("lon", "139");
+        api.replaceUrlPlaceholder("lon", "120");
         api.replaceUrlPlaceholder("key", "37089048ef111a660fec1c2b5f741d30");
 
         api.callAPI();
